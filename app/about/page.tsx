@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { personalInfo, skills, training } from "@/lib/data";
 
 const title = "Sobre mí";
@@ -21,7 +22,14 @@ export default function AboutPage() {
   return (
     <div className="mx-auto max-w-4xl space-y-10">
       <section>
-        <div aria-hidden="true" className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-indigo-950 text-3xl font-bold text-white">RB</div>
+        <Image
+          src="/fotocv.webp"
+          alt={`Fotografía de ${personalInfo.name}`}
+          width={160}
+          height={160}
+          sizes="160px"
+          className="mb-6 h-40 w-40 rounded-full object-cover"
+        />
         <h1 className="text-4xl font-bold">Sobre mí</h1>
         <h2 className="mt-4 text-xl font-semibold">{personalInfo.name}</h2>
         <p className="mt-2 text-indigo-700">{personalInfo.title}</p>
