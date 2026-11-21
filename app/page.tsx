@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import ProjectCard from "@/components/ProjectCard";
 import { personalInfo, projects } from "@/lib/data";
 
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <section className="flex flex-col-reverse items-start gap-10 rounded-3xl bg-linear-to-br from-indigo-950 to-indigo-900 px-7 py-12 text-white sm:px-12 lg:flex-row lg:items-center lg:py-16">
+      <section className="rounded-3xl bg-linear-to-br from-indigo-950 to-indigo-900 px-7 py-12 text-white sm:px-12 lg:py-16">
         <div className="min-w-0 flex-1">
         <h1 className="max-w-xl text-4xl font-bold sm:text-5xl">Hola, soy {personalInfo.shortName}</h1>
         <p className="mt-4 text-xl text-indigo-200">{personalInfo.title}</p>
@@ -27,9 +26,6 @@ export default function Home() {
           <Link href="/contact" className="rounded-xl border border-indigo-300/50 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10">Contactar</Link>
         </div>
         </div>
-        <Image src="/fotocv.webp" alt={`Fotografía de ${personalInfo.name}`} width={224} height={224}
-          sizes="(min-width: 1024px) 224px, 112px" preload
-          className="h-28 w-28 shrink-0 rounded-full border-4 border-white/20 object-cover shadow-xl lg:h-56 lg:w-56" />
       </section>
       <section className="mt-12">
         <h2 className="mb-6 text-2xl font-bold">Proyectos destacados</h2>

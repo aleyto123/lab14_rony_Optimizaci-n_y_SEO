@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { personalInfo, skills, training } from "@/lib/data";
 
 const title = "Sobre mí";
@@ -23,9 +22,7 @@ export default function AboutPage() {
     <div className="space-y-12">
       <section className="grid items-start gap-8 lg:grid-cols-[280px_1fr]">
         <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
-          <Image src="/fotocv.webp" alt={`Fotografía de ${personalInfo.name}`} width={224} height={224}
-            sizes="224px" className="mx-auto aspect-square w-full max-w-56 rounded-2xl object-cover" />
-          <p className="mt-5 text-lg font-bold text-indigo-950">{personalInfo.shortName}</p>
+          <p className="text-lg font-bold text-indigo-950">{personalInfo.shortName}</p>
           <p className="mt-1 text-sm text-slate-600">{personalInfo.title}</p>
           <p className="mt-4 border-t border-slate-100 pt-4 text-sm text-slate-600">{personalInfo.location}</p>
           <a href={`mailto:${personalInfo.email}`} className="mt-5 block rounded-xl bg-indigo-950 px-4 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-indigo-800">Escríbeme</a>
