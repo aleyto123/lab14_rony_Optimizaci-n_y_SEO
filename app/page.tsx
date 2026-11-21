@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     url: "/",
     title: `${personalInfo.name} | ${personalInfo.title}`,
     description: personalInfo.description,
-    images: [{ url: personalInfo.avatar, alt: personalInfo.name }],
+    images: [{ url: personalInfo.avatar, alt: personalInfo.imageAlt }],
   },
 };
 
@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       <section className="rounded-3xl bg-indigo-950 px-7 py-16 text-white sm:px-12">
-        <h1 className="text-4xl font-bold sm:text-5xl">Hola, soy {personalInfo.name}</h1>
+        <h1 className="text-4xl font-bold sm:text-5xl">Hola, soy {personalInfo.shortName}</h1>
         <p className="mt-4 text-xl text-indigo-200">{personalInfo.title}</p>
         <p className="mt-2 text-indigo-100">{personalInfo.description}</p>
         <Link href="/projects" className="mt-7 inline-block rounded-lg bg-white px-5 py-3 font-semibold text-indigo-950">Ver proyectos</Link>

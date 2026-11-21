@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { personalInfo } from "@/lib/data";
 
 const title = "Contacto";
-const description = "Ponte en contacto conmigo para conversar sobre proyectos y oportunidades de desarrollo web.";
+const description = "Contacta a Rony Bellido para conversar sobre proyectos y oportunidades de desarrollo web y móvil.";
 
 export const metadata: Metadata = {
   title,
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title,
     description,
     url: "/contact",
-    images: [{ url: personalInfo.avatar, alt: personalInfo.name }],
+    images: [{ url: personalInfo.avatar, alt: personalInfo.imageAlt }],
   },
   twitter: {
     card: "summary_large_image",
@@ -30,7 +30,9 @@ export default function ContactPage() {
       <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
         <h2 className="text-2xl font-bold">Conversemos</h2>
         <p className="mt-3 text-slate-600">Puedes escribirme por correo o encontrarme en mis redes profesionales.</p>
+        <p className="mt-4 text-slate-600">{personalInfo.location}</p>
         <div className="mt-6 flex flex-wrap gap-5 font-medium text-indigo-700">
+          <a href={`tel:${personalInfo.phoneHref}`} className="hover:underline">{personalInfo.phone}</a>
           <a href={`mailto:${personalInfo.email}`} className="hover:underline">{personalInfo.email}</a>
           <a href={personalInfo.github} className="hover:underline">GitHub</a>
           <a href={personalInfo.linkedin} className="hover:underline">LinkedIn</a>

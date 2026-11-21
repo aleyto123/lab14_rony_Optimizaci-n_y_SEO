@@ -37,9 +37,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <h1 className="mt-5 text-4xl font-bold">{project.title}</h1>
       <p className="my-4 text-lg text-slate-600">{project.description}</p>
       <div className="relative aspect-video overflow-hidden rounded-2xl bg-slate-100">
-        <Image src={project.image} alt={project.title} fill preload
+        <Image src={project.image} alt={project.imageAlt} fill preload
           sizes="(min-width: 948px) 896px, calc(100vw - 48px)" className="object-cover" />
       </div>
+      <p className="mt-2 text-sm text-slate-600">Imagen ilustrativa de desarrollo de software.</p>
+      <h2 className="mb-3 mt-7 text-xl font-bold">Mi participación</h2>
+      <p className="text-slate-600">{project.contribution}</p>
       <h2 className="mb-3 mt-7 text-xl font-bold">Tecnologías</h2>
       <ul className="flex flex-wrap gap-2">
         {project.technologies.map((technology) => (
@@ -48,7 +51,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </ul>
       <div className="mt-6 flex gap-5 font-medium text-indigo-700">
         {project.demoUrl && <a href={project.demoUrl}>Ver demo</a>}
-        <a href={project.githubUrl}>Ver código en GitHub</a>
+        {project.githubUrl && <a href={project.githubUrl}>Ver código en GitHub</a>}
       </div>
     </article>
   );

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { personalInfo } from "@/lib/data";
+import { personalInfo, skills, training } from "@/lib/data";
 
 const title = "Sobre mí";
 const description = personalInfo.description;
@@ -13,21 +12,45 @@ export const metadata: Metadata = {
     title,
     description,
     url: "/about",
-    images: [{ url: personalInfo.avatar, alt: personalInfo.name }],
+    images: [{ url: personalInfo.avatar, alt: personalInfo.imageAlt }],
   },
+  twitter: { card: "summary_large_image", title, description, images: [personalInfo.avatar] },
 };
 
 export default function AboutPage() {
   return (
-    <section className="flex flex-col items-start gap-8 sm:flex-row sm:items-center">
-      <Image src={personalInfo.avatar} alt={`Retrato de ${personalInfo.name}`} width={224} height={224}
-        loading="lazy" className="aspect-square rounded-full object-cover" />
-      <div>
-        <h1 className="text-4xl font-bold">{title}</h1>
-        <h2 className="mt-4 text-xl font-semibold">{personalInfo.name} · {personalInfo.title}</h2>
-        <p className="my-4 text-slate-600">{description}</p>
-        <a href={`mailto:${personalInfo.email}`} className="text-indigo-700 hover:underline">{personalInfo.email}</a>
-      </div>
-    </section>
+    <div className="mx-auto max-w-4xl space-y-10">
+      <section>
+        <div aria-hidden="true" className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-indigo-950 text-3xl font-bold text-white">RB</div>
+        <h1 className="text-4xl font-bold">Sobre mí</h1>
+        <h2 className="mt-4 text-xl font-semibold">{personalInfo.name}</h2>
+        <p className="mt-2 text-indigo-700">{personalInfo.title}</p>
+        <p className="mt-4 text-slate-600">{description}</p>
+        <p className="mt-4 text-slate-600">Me interesa crear software que responda a necesidades concretas. Mi experiencia incluye frontend y backend, aplicaciones móviles y bases de datos. En Creaciones Mathias y Natzumi participé en los perfiles de dueño y trabajador, sus permisos y las funcionalidades con códigos de barras.</p>
+        <p className="mt-4 text-slate-600">Capacidad de análisis, solución de problemas y trabajo en equipo. Inglés intermedio.</p>
+      </section>
+      <section>
+        <h2 className="mb-4 text-2xl font-bold">Formación</h2>
+        <p className="text-slate-600">Diseño y Desarrollo de Software · TECSUP · Quinto ciclo, en curso.</p>
+      </section>
+      <section>
+        <h2 className="mb-4 text-2xl font-bold">Conocimientos técnicos</h2>
+        <dl className="grid gap-5 sm:grid-cols-2">
+          {skills.map((skill) => (
+            <div key={skill.area} className="rounded-xl border border-slate-200 bg-white p-5">
+              <dt className="font-semibold">{skill.area}</dt>
+              <dd className="mt-2 text-slate-600">{skill.technologies}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+      <section>
+        <h2 className="mb-4 text-2xl font-bold">Formación adicional</h2>
+        <p className="mb-3 text-slate-600">Cisco Networking Academy</p>
+        <ul className="list-inside list-disc space-y-2 text-slate-600">
+          {training.map((course) => <li key={course}>{course}</li>)}
+        </ul>
+      </section>
+    </div>
   );
 }

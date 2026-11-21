@@ -7,7 +7,7 @@ export default function ProjectCard({ project, heading: Heading = "h2" }: { proj
     <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
       <Link href={`/projects/${project.slug}`} className="block h-full hover:text-indigo-700">
         <div className="relative aspect-video bg-slate-100">
-          <Image src={project.image} alt={project.title} fill loading="lazy"
+          <Image src={project.image} alt={project.imageAlt} fill loading="lazy"
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             className="object-cover" />
         </div>

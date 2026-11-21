@@ -11,14 +11,14 @@ export const metadata: Metadata = {
   title: { default: title, template: `%s | ${personalInfo.name}` },
   description: personalInfo.description,
   authors: [{ name: personalInfo.name }],
-  keywords: ["portafolio", "desarrollo web", "Next.js", "Full Stack"],
+  keywords: ["Rony Bellido", "TECSUP", "desarrollo web", "desarrollo móvil", "Next.js", "Kotlin", "SwiftUI"],
   openGraph: {
     type: "website",
     locale: "es_PE",
     siteName: personalInfo.name,
     title,
     description: personalInfo.description,
-    images: [{ url: personalInfo.avatar, alt: personalInfo.name }],
+    images: [{ url: personalInfo.avatar, alt: personalInfo.imageAlt }],
   },
   twitter: {
     card: "summary_large_image",
