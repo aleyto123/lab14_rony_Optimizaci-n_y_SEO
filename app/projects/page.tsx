@@ -15,8 +15,10 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <>
-      <h1 className="text-4xl font-bold">{title}</h1>
-      <p className="mb-8 mt-3 text-slate-600">{description}</p>
+      <div className="mb-10 border-b border-slate-200 pb-8">
+        <h1 className="text-4xl font-bold text-indigo-950 sm:text-5xl">{title}</h1>
+        <p className="mt-4 max-w-2xl text-lg text-slate-600">{description}</p>
+      </div>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => <ProjectCard key={project.slug} project={project} />)}
       </div>
