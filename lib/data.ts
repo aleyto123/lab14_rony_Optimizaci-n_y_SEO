@@ -2,6 +2,16 @@ import type { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    slug: "liga-1-pro",
+    title: "Liga 1 Pro",
+    description: "Aplicación web sobre la Liga 1 del Perú, desarrollada con Django y React, que incluye predicción de resultados de partidos.",
+    contribution: "Participé en el desarrollo de Liga 1 Pro en un equipo de tres integrantes. Utilizamos Django y React para construir una aplicación dedicada al fútbol peruano e incorporamos una funcionalidad de predicción de resultados.",
+    image: "https://images.unsplash.com/photo-1618477388954-7852f32655ec?q=80&w=928&auto=format&fit=crop",
+    imageAlt: "Imagen ilustrativa de un entorno de programación",
+    technologies: ["Django", "React"],
+    featured: true,
+  },
+  {
     slug: "creaciones-mathias-natzumi",
     title: "Gestión para Creaciones Mathias y Natzumi",
     description: "Sistema web y móvil para apoyar la producción, el inventario y las ventas de un negocio de confecciones infantiles en Gamarra.",
