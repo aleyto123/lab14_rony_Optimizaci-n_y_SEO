@@ -39,6 +39,9 @@ export const personalInfo = {
   email: 'tu@email.com',
   github: 'https://github.com/tuusuario',
   linkedin: 'https://linkedin.com/in/tuusuario',
-  siteUrl: 'https://tuportafolio.com',
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : 'http://localhost:3000'),
   avatar: 'https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 };

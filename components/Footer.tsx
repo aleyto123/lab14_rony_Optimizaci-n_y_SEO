@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { personalInfo } from "@/lib/data";
 
 export default function Footer() {
@@ -8,7 +9,7 @@ export default function Footer() {
         <div className="flex gap-5">
           <a href={personalInfo.github}>GitHub</a>
           <a href={personalInfo.linkedin}>LinkedIn</a>
-          <a href={`mailto:${personalInfo.email}`}>Contacto</a>
+          <Link href="/contact">Contacto</Link>
         </div>
       </div>
     </footer>
