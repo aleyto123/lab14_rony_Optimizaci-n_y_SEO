@@ -1,5 +1,5 @@
 .project-showcase-page {
-  --accent: #315bea;
+  --accent: var(--cyan);
 }
 
 .project-showcase-intro {
@@ -9,21 +9,21 @@
   gap: 1.5rem;
   padding: 1.5rem 1.75rem;
   margin-bottom: 1.5rem;
-  border: 1px solid #e0e8fc;
+  border: 1px solid var(--line);
   border-radius: 1.25rem;
-  background: linear-gradient(115deg, #eef3ff, #f8faff 70%, #edf4ff);
+  background: linear-gradient(115deg, #142c4b, #0c1c33);
 }
 
 .project-showcase-intro h1 {
   font-size: clamp(2.25rem, 4vw, 2.75rem);
   font-weight: 750;
-  color: #1e3f9a;
+  color: var(--ink);
 }
 
 .project-showcase-intro p {
   max-width: 36rem;
   margin-top: 0.65rem;
-  color: #56657b;
+  color: var(--muted);
   font-size: 0.95rem;
 }
 
@@ -33,9 +33,9 @@
   color: var(--accent);
   font-size: 0.875rem;
   font-weight: 600;
-  border: 1px solid #c9d7fc;
+  border: 1px solid var(--line);
   border-radius: 0.65rem;
-  background: #ffffffd9;
+  background: #122841;
 }
 
 .project-showcase-projects {
@@ -49,15 +49,15 @@
   align-items: center;
   gap: 1.5rem;
   padding: 0.8rem;
-  border: 1px solid #e0e7f1;
+  border: 1px solid var(--line);
   border-radius: 1.25rem;
-  background: white;
+  background: var(--surface);
   box-shadow: 0 3px 14px #1f38600a;
   transition: border-color 180ms, box-shadow 180ms;
 }
 
 .project-showcase-card:hover {
-  border-color: #afc0f7;
+  border-color: #4ba7ff;
   box-shadow: 0 8px 28px #23468410;
 }
 
@@ -68,7 +68,7 @@
   min-height: 8rem;
   overflow: hidden;
   border-radius: 0.8rem;
-  background: #edf2fc;
+  background: #0c1c33;
 }
 
 .project-showcase-image {
@@ -96,7 +96,7 @@
 }
 
 .project-showcase-content h2 {
-  color: #15243d;
+  color: var(--ink);
   font-size: 1.125rem;
   font-weight: 700;
 }
@@ -107,7 +107,7 @@
 
 .project-showcase-content p {
   margin-top: 0.5rem;
-  color: #56657b;
+  color: var(--muted);
   font-size: 0.875rem;
   line-height: 1.55;
 }
@@ -121,10 +121,10 @@
 
 .project-showcase-technologies li {
   padding: 0.1rem 0.6rem;
-  border: 1px solid #e0e8ff;
+  border: 1px solid var(--line);
   border-radius: 0.5rem;
-  background: #f3f6ff;
-  color: #3154aa;
+  background: #1b3451;
+  color: var(--ink);
   font-size: 0.75rem;
   font-weight: 500;
 }
@@ -142,7 +142,7 @@
 
 .project-showcase-details {
   border-radius: 0.65rem;
-  background: var(--accent);
+  background: #1552c7;
   color: white;
   padding: 0.7rem 1rem;
   box-shadow: 0 3px 7px #315bea20;
@@ -154,7 +154,7 @@
 }
 
 .project-showcase-repository {
-  color: #52627b;
+  color: var(--muted);
 }
 
 .project-showcase-repository:hover {

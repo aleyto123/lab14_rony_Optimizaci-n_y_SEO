@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
 import { personalInfo, projects } from "@/lib/data";
@@ -13,24 +14,58 @@ export const metadata: Metadata = {
   },
 };
 
+const highlights = [
+  { icon: "</>", title: String(projects.length), detail: "Proyectos desarrollados" },
+  { icon: "◇", title: "5.° ciclo", detail: "Diseño y Desarrollo de Software" },
+  { icon: "▣", title: "Web y móvil", detail: "Enfoque full stack" },
+  { icon: "☆", title: "TECSUP", detail: "Formación profesional" },
+];
+
 export default function Home() {
   return (
     <>
-      <section className="rounded-3xl bg-linear-to-br from-indigo-950 to-indigo-900 px-7 py-12 text-white sm:px-12 lg:py-16">
-        <div className="min-w-0 flex-1">
-        <h1 className="max-w-xl text-4xl font-bold sm:text-5xl">Hola, soy {personalInfo.shortName}</h1>
-        <p className="mt-4 text-xl text-indigo-200">{personalInfo.title}</p>
-        <p className="mt-4 max-w-2xl text-base leading-7 text-indigo-100">{personalInfo.description}</p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link href="/projects" className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-indigo-950 transition-colors hover:bg-indigo-100">Ver proyectos</Link>
-          <Link href="/contact" className="rounded-xl border border-indigo-300/50 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10">Contactar</Link>
+      <section className="portfolio-hero">
+        <div className="hero-copy">
+          <p className="hero-badge"><span aria-hidden="true">◇</span> Estudiante de TECSUP</p>
+          <h1>Hola, soy <strong>{personalInfo.shortName}</strong></h1>
+          <p className="hero-role">{personalInfo.title}</p>
+          <p className="hero-description">{personalInfo.description}</p>
+          <div className="hero-actions">
+            <Link href="/projects" className="portfolio-button primary-button">Ver proyectos <span aria-hidden="true">→</span></Link>
+            <Link href="/contact" className="portfolio-button"><span aria-hidden="true">✉</span> Contactar</Link>
+          </div>
         </div>
+        <div className="hero-portrait">
+          <Image
+            src={personalInfo.avatar}
+            alt={personalInfo.imageAlt}
+            width={780}
+            height={950}
+            sizes="(min-width: 900px) 310px, (min-width: 700px) 240px, 200px"
+            preload
+          />
         </div>
       </section>
-      <section className="mt-12">
-        <h2 className="mb-6 text-2xl font-bold">Proyectos destacados</h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.filter((project) => project.featured).map((project) => <ProjectCard key={project.slug} project={project} heading="h3" />)}
+      <ul className="portfolio-highlights" aria-label="Perfil profesional">
+        {highlights.map(({ icon, title, detail }) => (
+          <li key={title}>
+            <span aria-hidden="true" className="highlight-icon">{icon}</span>
+            <div><strong>{title}</strong><span>{detail}</span></div>
+          </li>
+        ))}
+      </ul>
+      <section aria-labelledby="featured-projects">
+        <div className="featured-heading">
+          <div>
+            <h2 id="featured-projects">Proyectos destacados</h2>
+            <p>Algunos de los proyectos en los que he trabajado.</p>
+          </div>
+          <Link href="/projects">Ver todos los proyectos <span aria-hidden="true">→</span></Link>
+        </div>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.filter((project) => project.featured).map((project) => (
+            <ProjectCard key={project.slug} project={project} heading="h3" />
+          ))}
         </div>
       </section>
     </>
